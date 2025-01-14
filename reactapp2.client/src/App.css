@@ -1,11 +1,265 @@
 ﻿#root {
-    max-width: 1280px;
-    margin: 0 auto;
+    max-width: 100%;
+    margin: auto;
     padding: 2rem;
     text-align: center;
+    width: 100%;
+    background-color: whitesmoke; /* لون الخلفية */
 }
 
-th, td {
-    padding-left: 1rem;
-    padding-right: 1rem;
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    color: #2c3e50; /* لون النص الأساسي */
+    line-height: 1.6;
+    overflow-x: hidden; /* منع التمرير الأفقي */
+    background: whitesmoke; /* لون الخلفية */
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+    margin:  0;
+    padding-top: 0px; /* هامش أعلى لتجنب تداخل النافبار */
+}
+
+/* Navbar Styles */
+/* Navbar Styles */
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: rgba(255, 255, 255, 0.5); /* خلفية شفافة */
+    border-bottom: 1px solid rgba(44, 62, 80, 0.1);
+    color: #2c3e50;
+    width: 100%; /* عرض كامل */
+    max-width: 1200px; /* عرض أقصى للنافبار */
+    margin: 0 0 0 0 ; /* توسيط النافبار */
+    box-sizing: border-box; /* تضمين الحشو والحدود في العرض */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* ظل خفيف */
+    overflow: hidden; /* منع تجاوز العناصر الداخلية */
+    animation: fadeInDown 0.5s ease-in-out forwards; /* أنيميشن جديد */
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0; /* بداية الأنيميشن: النافبار مخفي */
+        transform: translateY(-20px); /* إزاحة النافبار لأعلى */
+    }
+
+    to {
+        opacity: 1; /* نهاية الأنيميشن: النافبار مرئي */
+        transform: translateY(0); /* إزالة الإزاحة */
+    }
+}
+
+.navbar .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #121087; /* لون التباين */
+    text-shadow: 0 0 10px rgba(255, 107, 107, 0.8);
+    transition: transform 0.3s ease;
+    white-space: nowrap; /* منع التفاف النص */
+}
+
+    .navbar .logo:hover {
+        transform: scale(1.1); /* تكبير الشعار عند التمرير */
+    }
+
+.navbar .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem; /* تباعد بين الروابط */
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* تمكين التمرير الأفقي إذا لزم الأمر */
+    white-space: nowrap; /* منع التفاف الروابط */
+}
+
+    .navbar .nav-links li a {
+        color: #546e7a; /* لون النص الثانوي */
+        text-decoration: none;
+        font-size: 1.1rem;
+        transition: color 0.3s, transform 0.3s;
+        position: relative;
+        padding: 0.5rem 0;
+        white-space: nowrap; /* منع التفاف النص */
+    }
+
+        .navbar .nav-links li a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background: #ff6b6b; /* لون التباين */
+            transition: width 0.3s ease;
+        }
+
+        .navbar .nav-links li a:hover {
+            color: #ff6b6b; /* لون التباين */
+            transform: translateY(-3px); /* حركة سلسة لأعلى */
+        }
+
+            .navbar .nav-links li a:hover::after {
+                width: 100%; /* توسيع الخط عند التمرير */
+            }
+
+/* Hero Section Styles */
+.hero-section {
+    text-align: center;
+    padding: 6rem 2rem;
+    background: linear-gradient(to right, #69e4ff, #0072ff); /* تدرج من الأزرق الفاتح إلى الأزرق الغامق */
+    text-shadow: 0 0 20px rgba(105, 228, 255, 0.8);
+    color: #ffffff;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    animation: fadeInUp 1.5s ease-in-out;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    position: relative; /* لجعل النافبار يظهر داخلها */
+    padding-top:0.5px;
+}
+
+    .hero-section .hero-content {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 1rem;
+    }
+
+    .hero-section h1 {
+        font-size: 3.5rem;
+        margin-bottom: 1.5rem;
+        background: linear-gradient(to right, #69e4ff, #0072ff); /* تدرج من الأزرق الفاتح إلى الأزرق الغامق */
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 0 10px rgba(105, 228, 255, 0.8);
+    }
+
+    .hero-section p {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+        color: #f0f7ff; /* لون النص الفاتح */
+        line-height: 1.8;
+    }
+
+    .hero-section .cta-button {
+        display: inline-block;
+        padding: 1rem 2rem;
+        background: linear-gradient(to right, #69e4ff, #0072ff); /* تدرج من الأزرق الفاتح إلى الأزرق الغامق */
+        color: white;
+        border: none;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 50px;
+        transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+        box-shadow: 0 4px 15px rgba(0, 114, 255, 0.75);
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+    }
+
+        .hero-section .cta-button:hover {
+            background: linear-gradient(to right, #0072ff, #69e4ff); /* تدرج معكوس */
+            box-shadow: 0 0 15px rgba(105, 228, 255, 0.8);
+            transform: scale(1.1);
+        }
+
+/* تعديلات للمحتوى الرئيسي */
+.app-container {
+    padding-top: 0; /* إزالة الهوامش العلوية */
+    width: 100%;
+}
+/* Section Styles */
+section {
+    padding: 4rem 2rem;
+    background: rgba(255, 255, 255, 0.9); /* خلفية شفافة */
+    border: 1px solid rgba(44, 62, 80, 0.1);
+    color: #2c3e50;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-in-out;
+}
+
+    section h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+        background: linear-gradient(to right, #ff6b6b, #ff8e8e); /* تدرج من الأحمر الوردي الفاتح */
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 0 15px rgba(255, 107, 107, 0.8);
+        text-align: center;
+    }
+
+    section p {
+        font-size: 1.2rem;
+        line-height: 1.8;
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+        color: #546e7a; /* لون النص الثانوي */
+    }
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+    }
+
+        .navbar .nav-links {
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-section p {
+        font-size: 1.2rem;
+    }
 }

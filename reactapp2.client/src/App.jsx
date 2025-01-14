@@ -1,51 +1,62 @@
-import { useEffect, useState } from 'react';
-import './App.css';
+﻿import './App.css';
 
 function App() {
-    const [forecasts, setForecasts] = useState();
-
-    useEffect(() => {
-        populateWeatherData();
-    }, []);
-
-    const contents = forecasts === undefined
-        ? <p><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationreact">https://aka.ms/jspsintegrationreact</a> for more details.</em></p>
-        : <table className="table table-striped" aria-labelledby="tableLabel">
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Temp. (C)</th>
-                    <th>Temp. (F)</th>
-                    <th>Summary</th>
-                </tr>
-            </thead>
-            <tbody>
-                {forecasts.map(forecast =>
-                    <tr key={forecast.date}>
-                        <td>{forecast.date}</td>
-                        <td>{forecast.temperatureC}</td>
-                        <td>{forecast.temperatureF}</td>
-                        <td>{forecast.summary}</td>
-                    </tr>
-                )}
-            </tbody>
-        </table>;
-
     return (
-        <div>
-            <h1 id="tableLabel">Weather forecast</h1>
-            <p>This component demonstrates fetching data from the server.</p>
-            {contents}
+        <div className="app-container">
+            <header className="hero-section">
+                <nav className="navbar">
+                    <div className="logo">موقعي الشخصي</div>
+                    <ul className="nav-links">
+                        <li><a href="#about">نبذه عني</a></li>
+                        <li><a href="#projects">المشاريع</a></li>
+                        <li><a href="#contact">تواصل معي</a></li>
+                    </ul>
+                </nav>
+                <div className="hero-content">
+                    <p>مرحباً، أنا محمد ناصر </p>
+                        <p>مطور مبدع يقدم تجارب رقمية مميزة.</p>
+                        <a href="#projects" className="cta-button">شاهد أعمالي</a>
+                </div>
+            </header>
+
+            <main>
+                <section id="about" className="about-section">
+                    <h2>نبذة عني </h2>
+                    <p>محمد.</p>
+                </section>
+
+                <section id="projects" className="projects-section">
+                    <h2>المشاريع</h2>
+                    <div className="project-list">
+                        <div className="project-card">
+                            <h3>عنوان المشروع </h3>
+                            <p>وصف مختصر للمشروع. تم بناؤه باستخدام React, Node.js، والمزيد.</p>
+                            <a href="https://github.com/username/project" target="_blank" rel="noopener noreferrer">عرض الكود</a>
+                        </div>
+                        <div className="project-card">
+                            <h3>عنوان المشروع </h3>
+                            <p>وصف مختصر للمشروع. تم بناؤه باستخدام React, Node.js، والمزيد.</p>
+                            <a href="https://github.com/username/project" target="_blank" rel="noopener noreferrer">عرض الكود</a>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="contact" className="contact-section">
+                    <h2>تواصل معي</h2>
+                    <p>أنا متاح للتعاون وفرص جديدة. لا تتردد في التواصل!</p>
+                    <a href="mailto:your.email@example.com" className="cta-button">أرسل لي بريداً</a>
+                </section>
+            </main>
+
+            <footer className="footer">
+                <p>&copy; 2025 [محمد]. جميع الحقوق محفوظة.</p>
+                <div className="social-links">
+                    <a href="https://github.com/username" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://linkedin.com/in/username" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                </div>
+            </footer>
         </div>
     );
-    
-    async function populateWeatherData() {
-        const response = await fetch('weatherforecast');
-        if (response.ok) {
-            const data = await response.json();
-            setForecasts(data);
-        }
-    }
 }
 
 export default App;
